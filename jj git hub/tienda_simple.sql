@@ -1,13 +1,19 @@
-CREATE DATABASE IF NOT EXISTS tienda_simple;
-USE tienda_simple;
+CREATE DATABASE control_prestamos
+CHARACTER SET utf8mb4
+COLLATE utf8mb4_unicode_ci;
+USE control_prestamos;
 
-CREATE TABLE IF NOT EXISTS productos (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    nombre VARCHAR(100) NOT NULL,
-    precio DECIMAL(10,2) NOT NULL
+
+
+CREATE TABLE prestamos (
+id INT AUTO_INCREMENT PRIMARY KEY,
+equipo VARCHAR(150) NOT NULL,
+serial VARCHAR(100) NULL,
+aprendiz VARCHAR(150) NOT NULL,
+ficha VARCHAR(50) NULL,
+fecha_prestamo DATE NOT NULL,
+fecha_devolucion DATE NULL,
+devuelto INT NOT NULL DEFAULT 0,
+observaciones varchar(200) NULL,
+fecha_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
-
-INSERT INTO productos (nombre, precio) VALUES
-('Camiseta', 45000),
-('Zapatos', 120000),
-('Gorra', 25000);
